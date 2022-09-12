@@ -84,8 +84,6 @@ def get_max_salary(path):
         if salary["max_salary"] != "" and salary["max_salary"].isdigit():
             max_salary_list.append(int(salary["max_salary"]))
 
-    print('LISTA de salario', max_salary_list)
-
     return max(max_salary_list)
 
 
@@ -104,7 +102,14 @@ def get_min_salary(path):
     int
         The minimum salary paid out of all job opportunities
     """
-    pass
+    salaries = read(path)
+    min_salary_list = []
+
+    for salary in salaries:
+        if salary["min_salary"] != "" and salary["min_salary"].isdigit():
+            min_salary_list.append(int(salary["min_salary"]))
+
+    return min(min_salary_list)
 
 
 def matches_salary_range(job, salary):
