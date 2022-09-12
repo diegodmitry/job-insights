@@ -1,19 +1,19 @@
+from src.jobs import read
+
+
 def get_unique_job_types(path):
-    """Checks all different job types and returns a list of them
+    jobs = read(path)
+    print('jobs', jobs)
+    jobs_types_list = []
+    for job in jobs:
+        jobs_types_list.append(job["job_type"])
 
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique job types
-    """
-    return []
+    # o que está faltando?
+    # verificado que aparece varios resultatos iguais,
+    # mas no teste solicita apenas 6
+    # ao usar o set(), mostra a lista sem resultatos repetidos
+    # print('jobs_types', set(jobs_types_list))
+    return set(jobs_types_list)
 
 
 def filter_by_job_type(jobs, job_type):
